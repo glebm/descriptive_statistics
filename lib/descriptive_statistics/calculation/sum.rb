@@ -1,10 +1,12 @@
 module DescriptiveStatistics
   module Calculation
-    def sum(identity = 0, collection)
+    def sum(identity = 0, collection, &block)
       values = Support::convert(collection)
-      return identity if values.empty?
-
-      return values.inject(:+)
+      if block
+        values.inject(identity) { |a, b| a + block.call(b) }
+      else
+        values.inject(identity, :+)
+      end
     end
   end
 end
