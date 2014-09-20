@@ -1,9 +1,9 @@
 require 'rspec'
 
-describe "DescriptiveStatistics::Stats" do
+describe 'DescriptiveStatistics::Stats' do
   require 'descriptive_statistics/safe'
 
-  context "calculated from a Stats object" do
+  context "calculated from Stats module" do
 
     subject { DescriptiveStatistics::Stats.new([2,6,9,3,5,1,8,3,6,9,2]) }
 

@@ -2,7 +2,7 @@ module DescriptiveStatistics
   module Calculation
     def mean(collection)
       values = Support::convert(collection)
-      return DescriptiveStatistics.mean_empty_collection_default_value unless values.size > 0
+      return nil if values.empty?
 
       values.sum / values.number
     end

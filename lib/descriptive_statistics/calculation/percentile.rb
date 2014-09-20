@@ -2,7 +2,7 @@ module DescriptiveStatistics
   module Calculation
     def percentile(p, collection)
       values = Support::convert(collection)
-      return DescriptiveStatistics.percentile_empty_collection_default_value unless values.size > 0
+      return nil if values.empty?
 
       return values.first unless values.size > 1
 
