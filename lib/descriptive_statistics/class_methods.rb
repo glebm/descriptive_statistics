@@ -1,4 +1,12 @@
 module DescriptiveStatistics
+  extend Calculation
+
+  Calculation.instance_methods.each do |m|
+    define_method(m) do |*args, &block|
+      DescriptiveStatistics.send(m, *args, self, &block)
+    end
+  end
+
 
   class << self
 
@@ -11,23 +19,19 @@ module DescriptiveStatistics
       DescriptiveStatistics.instance_methods.each { |m| default_values[m] = value }
     end
 
-    DescriptiveStatistics.instance_methods.each do |m|
+    Calculation.instance_methods.each do |m|
       define_method("#{m}_empty_collection_default_value") do
         default_values[m]
       end
       define_method("#{m}_empty_collection_default_value=") do |value|
         default_values[m] = value
-      end      
-    end
-
-    DescriptiveStatistics.instance_methods.each do |m|
-      define_method(m, DescriptiveStatistics.instance_method(m))
+      end
     end
 
     private
 
     def default_values
-      @default_values ||= {} 
+      @default_values ||= {}
     end
 
   end
