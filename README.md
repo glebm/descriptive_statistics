@@ -1,11 +1,19 @@
 Descriptive Statistics
 ===============
 
+This is a fork of https://github.com/thirtysixthspan/descriptive_statistics.
+Differences:
+
+* `#sum` accepts an identity argument (0 by default), and a block argument, making the gem compatible with ActiveSupport.
+* `empty_collection` settings removed, everything returns nil except for `#sum`.
+* works on the original input (or `#values` for Hash), instead of copying it and converting elements `#to_f`.
+
 Overview
 --------
 
 This gem adds methods to the Enumerable module to allow easy calculation of basic
 descriptive statistics of Numeric sample data in collections that have included Enumerable such as Array, Hash, Set, and Range. The statistics that can be calculated are:
+
 * Number
 * Sum
 * Mean
@@ -26,8 +34,6 @@ that the statistical methods are available on any instance of a class that has i
  => true
 > data = [2,6,9,3,5,1,8,3,6,9,2]
  => [2, 6, 9, 3, 5, 1, 8, 3, 6, 9, 2]
-> data.number
- => 11.0
 > data.sum
  => 54.0
 > data.mean
@@ -49,7 +55,7 @@ that the statistical methods are available on any instance of a class that has i
 > data.range
  => 8
 > data.descriptive_statistics
- => {:number=>11.0,
+ => {:number=>11,
   :sum=>54,
   :variance=>7.7190082644628095,
   :standard_deviation=>2.778310325442932,
@@ -143,8 +149,6 @@ requiring DescriptiveStatistics safely, thus avoiding the monkey patch. For exam
  => [2, 6, 9, 3, 5, 1, 8, 3, 6, 9, 2]
 > data.extend(DescriptiveStatistics)
  => [2, 6, 9, 3, 5, 1, 8, 3, 6, 9, 2]
-> data.number
- => 11.0
 > data.sum
  => 54
 ```

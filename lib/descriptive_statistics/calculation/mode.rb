@@ -1,14 +1,12 @@
 module DescriptiveStatistics
   module Calculation
     def mode(collection)
-      values = Support::extract(collection)
-      return unless values.size > 0
-
+      values = Support::values(collection)
       values
       .group_by { |e| e }
       .values
       .max_by(&:size)
-      .first
+      .first unless empty?(values)
     end
   end
 end

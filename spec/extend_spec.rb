@@ -18,12 +18,12 @@ describe "DescriptiveStatistics" do
       subject.extend(DescriptiveStatistics)
     end
 
-    it "calculates the number" do
-      expect(subject.number).to eql(11.0)
+    it "calculates the size" do
+      expect(subject.number).to eql(11)
     end
 
     it "calculates the sum" do
-      expect(subject.sum).to eql(54.0)
+      expect(subject.sum).to eql(54)
     end
 
     it "calculates the mean" do
@@ -57,7 +57,7 @@ describe "DescriptiveStatistics" do
     end
 
     it "calculates the range" do
-      expect(subject.range).to eql(8.0)
+      expect(subject.range).to eql(8)
     end
 
     it "calculates the percentile rank" do

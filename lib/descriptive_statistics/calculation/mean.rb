@@ -1,10 +1,7 @@
 module DescriptiveStatistics
   module Calculation
-    def mean(collection)
-      values = Support::convert(collection)
-      return nil if values.empty?
-
-      values.sum / values.number
+    def mean(values)
+      sum(values) / number(values).to_f unless empty?(values)
     end
   end
 end

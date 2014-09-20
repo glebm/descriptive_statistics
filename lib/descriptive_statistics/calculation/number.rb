@@ -1,9 +1,7 @@
 module DescriptiveStatistics
   module Calculation
     def number(collection)
-      values = Support::extract(collection)
-
-      values.size.to_f
+      collection.respond_to?(:size) && collection.size || collection.count
     end
   end
 end

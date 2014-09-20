@@ -3,16 +3,15 @@ require 'rspec'
 describe "DescriptiveStatistics" do
   require 'descriptive_statistics'
 
-  class Foo 
+  class Foo
     include Enumerable
     attr_accessor :bar, :baz, :bat
 
-    def each
-      Enumerator.new do |y|
-        y << @bar
-        y << @baz
-        y << @bat
-      end
+    def each(&block)
+      return to_enum(:each) unless block_given?
+      block.yield @bar
+      block.yield @baz
+      block.yield @bat
     end
   end
 

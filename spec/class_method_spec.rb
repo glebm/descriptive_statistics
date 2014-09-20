@@ -8,12 +8,8 @@ describe 'DescriptiveStatistics' do
     let(:data) { [2,6,9,3,5,1,8,3,6,9,2] }
     subject { DescriptiveStatistics }
 
-    it "calculates the number" do
-      expect(subject.number(data)).to eql(11.0)
-    end
-
     it "calculates the sum" do
-      expect(subject.sum(data)).to eql(54.0)
+      expect(subject.sum(data)).to eql(54)
     end
 
     it "calculates the mean" do
@@ -47,7 +43,7 @@ describe 'DescriptiveStatistics' do
     end
 
     it "calculates the range" do
-      expect(subject.range(data)).to eql(8.0)
+      expect(subject.range(data)).to eql(8)
     end
 
     it "calculates the percentile rank" do

@@ -1,10 +1,8 @@
 module DescriptiveStatistics
   module Calculation
     def standard_deviation(collection)
-      values = Support::convert(collection)
-      return nil if values.empty?
-
-      Math.sqrt(values.variance)
+      values = Support.values(collection)
+      Math.sqrt(values.variance) unless empty?(values)
     end
   end
 end

@@ -1,7 +1,7 @@
 module DescriptiveStatistics
   module Calculation
     def sum(identity = 0, collection, &block)
-      values = Support::convert(collection)
+      values = Support.values(collection)
       if block
         values.inject(identity) { |a, b| a + block.call(b) }
       else

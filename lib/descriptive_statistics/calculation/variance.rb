@@ -1,11 +1,11 @@
 module DescriptiveStatistics
   module Calculation
     def variance(collection)
-      values = Support::convert(collection)
-      return nil if values.empty?
-
-      mean = values.mean
-      values.map { |sample| (mean - sample) ** 2 }.inject(:+) / values.number
+      values = Support.values(collection)
+      unless empty?(values)
+        mean = values.mean
+        sum(values) { |sample| (mean - sample) ** 2 } / number(values)
+      end
     end
   end
 end

@@ -1,4 +1,5 @@
 require 'descriptive_statistics/support/convert'
+require 'descriptive_statistics/calculation/empty'
 require 'descriptive_statistics/calculation/number'
 require 'descriptive_statistics/calculation/sum'
 require 'descriptive_statistics/calculation/mean'

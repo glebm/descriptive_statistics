@@ -3,20 +3,19 @@ require 'rspec'
 describe "DescriptiveStatistics" do
   require 'descriptive_statistics'
 
-  subject { [2,6,9,3,5,1,8,3,6,9,2] }
-
   context "with an array" do
+    subject { [2,6,9,3,5,1,8,3,6,9,2] }
 
     it "includes the statistics module" do
       Array.include?(DescriptiveStatistics)
     end
 
-    it "calculates the number" do
-      expect(subject.number).to eql(11.0)
+    it "calculates the size" do
+      expect(subject.number).to eql(11)
     end
 
     it "calculates the sum" do
-      expect(subject.sum).to eql(54.0)
+      expect(subject.sum).to eql(54)
     end
 
     it "calculates the mean" do
@@ -50,13 +49,25 @@ describe "DescriptiveStatistics" do
     end
 
     it "calculates the range" do
-      expect(subject.range).to eql(8.0)
+      expect(subject.range).to eql(8)
     end
 
     it "calculates the percentile rank" do
       expect(subject.percentile_rank(8)).to eql(81.81818181818183)
     end
 
-   end
+  end
+
+  context 'with an array of Complex' do
+    require 'complex'
+    require 'mathn'
+    subject { [Complex(2,5), Complex(1,7)] }
+    it 'calculates mean' do
+      expect(subject.mean).to eq Complex(1.5, 6.0)
+    end
+    it 'calculates sum' do
+      expect(subject.sum).to eq Complex(3, 12)
+    end
+  end
 
 end

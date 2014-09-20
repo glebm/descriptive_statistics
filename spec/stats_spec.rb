@@ -7,12 +7,12 @@ describe 'DescriptiveStatistics::Stats' do
 
     subject { DescriptiveStatistics::Stats.new([2,6,9,3,5,1,8,3,6,9,2]) }
 
-    it "calculates the number" do
-      expect(subject.number).to eql(11.0)
+    it "calculates the size" do
+      expect(subject.number).to eql(11)
     end
 
     it "calculates the sum" do
-      expect(subject.sum).to eql(54.0)
+      expect(subject.sum).to eql(54)
     end
 
     it "calculates the mean" do
@@ -46,7 +46,7 @@ describe 'DescriptiveStatistics::Stats' do
     end
 
     it "calculates the range" do
-      expect(subject.range).to eql(8.0)
+      expect(subject.range).to eql(8)
     end
 
     it "calculates the percentile rank" do

@@ -11,12 +11,12 @@ describe "DescriptiveStatistics" do
       Array.include?(DescriptiveStatistics)
     end
 
-    it "calculates the number" do
-      expect(subject.number).to eql(7.0)
+    it "calculates the size" do
+      expect(subject.number).to eql(7)
     end
 
     it "calculates the sum" do
-      expect(subject.sum).to eql(34.0)
+      expect(subject.sum).to eql(34)
     end
 
     it "calculates the mean" do
@@ -50,7 +50,7 @@ describe "DescriptiveStatistics" do
     end
 
     it "calculates the range" do
-      expect(subject.range).to eql(8.0)
+      expect(subject.range).to eql(8)
     end
 
     it "calculates the percentile rank" do
